@@ -1,0 +1,32 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "Part 33 - Big O & Scalability"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "const nemo = ['nemo'];\r\n\r\nfunction findNemo(array) {\r\n    let t0 = performance.now();\r\n    for(let i = 0; i < array.length; i++) {\r\n        if(array[i] === 'nemo') {\r\n            console.log('Found Nemo!');\r\n        }\r\n    }\r\n\r\n    let t1 = performance.now();\r\n    console.log(\"Call to findNemo took \" + (t1 - t0) + \" milliseconds\")\r\n}\r\n\r\nfindNemo(nemo);"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Found Nemo!",
+                                "Call to findNemo took 0.33070000000043365 milliseconds",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
