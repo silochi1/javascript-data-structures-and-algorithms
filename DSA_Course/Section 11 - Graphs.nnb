@@ -1,0 +1,49 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "All 3 graphs represent the same data structure & values\r\n\r\nCheckout visual go for representaitons of graphs\r\nhttps://visualgo.net/en/graphds"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// ** Exercise 151 **\r\n// Edge List\r\nconst graphL = [\r\n    // [Vertex A -> Connected to Vertex B]\r\n    [0, 2],\r\n    [2, 3],\r\n    [2, 1],\r\n    [1, 3]\r\n];\r\n\r\n// Adjacent List \r\nconst graphA = [\r\n    [2], // Index 0 -> Connected to 2\r\n    [2, 3], // Index 1 -> Connected to 2 & 3\r\n    [0, 1, 3], // Index 2 -> Connected to 0, 1, & 3\r\n    [1, 2] // Index 3 -> Connected to 1 & 2\r\n];\r\n\r\n// Adjacent Matrix (:array)\r\nconst graphMArr = [\r\n    // 0 = No connection at index\r\n    // 1 = Connection at index\r\n\r\n    [0, 0, 1, 0], // Index 0 -> Connected to 2\r\n    [0, 0, 1, 1], // Index 1 -> Connected to 2 & 3\r\n    [1, 1, 0, 1], // Index 2 -> Connected to 0, 1, & 3\r\n    [0, 1, 1, 0]  // Index 3 -> Connected to 1 & 2\r\n];\r\n\r\n// Adjacent Matrix (:object)\r\nconst graphMObj = {\r\n    // More readable than Adjacent Matrix as an array...\r\n    0: [0, 0, 1, 0],\r\n    1: [0, 0, 1, 1],\r\n    2: [1, 1, 0, 1],\r\n    3: [0, 1, 1, 0]\r\n}"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "// Exercise 152\r\n// - https://gale.udemy.com/course/master-the-coding-interview-data-structures-algorithms/learn/lecture/12371828#overview\r\n\r\n\r\nclass Graph {\r\n    constructor() {\r\n        this.numberOfNodes = 0;\r\n        this.adjacentList = {}; // Better to use an object than arrays for efficiency ...\r\n    }\r\n\r\n    addVertex(node) {\r\n        // Add empty node to the adjacentList ...\r\n        this.adjacentList[node] = [];\r\n        this.numberOfNodes++;\r\n    }\r\n\r\n    addEdge(node1, node2) {\r\n        // Undirected Graph\r\n        this.adjacentList[node1].push(node2);\r\n        this.adjacentList[node2].push(node1);\r\n    }\r\n\r\n    showConnections() {\r\n        const allNodes = Object.keys(this.adjacentList);\r\n\r\n        for (let node of allNodes) {\r\n            let nodeConnections = this.adjacentList[node];\r\n            let connections = \"\";\r\n            let vertex;\r\n\r\n            for (vertex of nodeConnections) {\r\n                connections += vertex + \" \";\r\n            }\r\n        }\r\n\r\n        // My customizations ...\r\n        // let strResults = String(connections);\r\n        // console.log(strResults);\r\n    }\r\n}\r\n\r\n// Generate Graph... \r\nconst myGraph = new Graph();\r\n\r\n// Add Vertices\r\nmyGraph.addVertex('0');\r\nmyGraph.addVertex('1');\r\nmyGraph.addVertex('2');\r\nmyGraph.addVertex('3');\r\nmyGraph.addVertex('4');\r\nmyGraph.addVertex('5');\r\nmyGraph.addVertex('6');\r\n\r\n// Add Edges \r\n// - Note: Order does not matter\r\nmyGraph.addEdge('3', '1');\r\nmyGraph.addEdge('3', '4');\r\nmyGraph.addEdge('4', '2');\r\nmyGraph.addEdge('4', '5');\r\nmyGraph.addEdge('1', '2');\r\nmyGraph.addEdge('1', '0');\r\nmyGraph.addEdge('0', '2');\r\nmyGraph.addEdge('6', '5');\r\n\r\n// Display Connections\r\nmyGraph.showConnections();\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

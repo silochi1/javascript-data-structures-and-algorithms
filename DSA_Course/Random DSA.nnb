@@ -12,7 +12,20 @@
             "source": [
                 "let letters = [];\r\nlet word = \"racecar\";\r\nlet rword = \"\";\r\n\r\n// Put letters of word into stack\r\nfor (let i = 0; i < word.length; i++){\r\n    letters.push(word[i]);\r\n}\r\n\r\n// Pop off the stack in reverse order \r\nfor (let i = 0; i < word.length; i++) {\r\n    rword += letters.pop();\r\n}\r\n\r\nif (rword === word) {\r\n    console.log(word + \" is a palindrome.\");\r\n} else {\r\n    console.log(word + \" is not a palindrome.\");\r\n}"
             ],
-            "outputs": []
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "racecar is a palindrome.",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
